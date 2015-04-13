@@ -11,6 +11,7 @@ gem 'devise' # Great Login
 # gem fog # Upload to cloud storage
 gem "font-awesome-sass"
 # gem fuzzily # Good simple indexing
+gem "gravtastic"
 # gem mini_magick # For Img uploads
 gem "modernizr-rails"
 gem "nested_form"
