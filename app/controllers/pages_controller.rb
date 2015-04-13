@@ -3,6 +3,10 @@ class PagesController < ApplicationController
   after_action :allow_iframe
 
   def index
+    @users = User.all.as_json(
+      only: [:email, :profile_image],
+      methods: [:profile_image]
+    )
   end
 
   def not_found
