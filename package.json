@@ -1,0 +1,13 @@
+{
+  "name": "ReactJsWorkshop",
+  "devDependencies" : {
+  },
+  "dependencies" : {
+    "browserify": "~> 6.3",
+    "browserify-incremental": "^1.4.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  }
+}
