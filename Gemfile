@@ -7,7 +7,7 @@ gem "bootstrap-sass"
 gem "bower-rails"
 gem "browserify-rails"
 # gem carrierwave # Great File upload
-# gem devise # Great Login
+gem 'devise' # Great Login
 # gem fog # Upload to cloud storage
 gem "font-awesome-sass"
 # gem fuzzily # Good simple indexing
