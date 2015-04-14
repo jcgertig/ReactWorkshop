@@ -5,19 +5,36 @@ class WalmartApiController < ApplicationController
     require "walmart_open"
 
     client = WalmartOpen::Client.new do |config|
-      ## Product API
       config.product_api_key = ENV["WALMART_KEY"]
-
-      # This value defaults to 5.
-      config.product_calls_per_second = 4
+      config.product_calls_per_second = 5
 
       # Set this to true for development mode.
       config.debug = true
     end
 
-    result = client.search(params["query"])
+    options = { numItems: 25, start: 1}
+    if params["page"] && params["page"].to_i > 0
+      options[:start] = 1 + (25 * (params["page"].to_i - 1))
+    end
 
-    # binding.pry
-    respond_with result.as_json
+    result = client.search(params["query"], options)
+
+    respond_with result.items.as_json(
+      only: [
+        "id",
+        "name",
+        "price",
+        "upc",
+        "category_node",
+        "short_description",
+        "long_description",
+        "ship_rate",
+        "model_number",
+        "url",
+        "available_online",
+        "thumbnail_image"
+      ]
+    )
+
   end
 end
