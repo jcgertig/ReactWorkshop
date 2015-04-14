@@ -14,10 +14,6 @@
   }
 
   function _executeRequest(method, useHeaders, path, data, callback, user) {
-    if (user && user.uuid.length > 0 && user.token.length > 0) {
-      data.uuid = user.uuid;
-      data.token = user.token;
-    }
     var request = new XMLHttpRequest();
     request.onreadystatechange = () => {
       if (request.readyState !== 4) {
@@ -29,6 +25,11 @@
         console.warn('error');
       }
     };
+
+    if (user && user.uuid.length > 0 && user.token.length > 0) {
+      request.setRequestHeader('uuid', user.uuid);
+      request.setRequestHeader('token', user.token);
+    }
 
     if (!useHeaders) {
       request.open(method, urlForQuery(path, data));

@@ -8,16 +8,18 @@ var React = require('react-native'),
     SearchView = require('./views/SearchView.ios'),
     {
       AppRegistry,
-      Text,
-      View
+      NavigatorIOS
     } = React;
 
 var ReactWorkshop = React.createClass({
   render () {
+    var initialRoute = {
+      component: SearchView,
+      title: 'Search',
+    };
+
     return (
-      <View>
-        <Text>Hello World</Text>
-      </View>
+      <NavigatorIOS style={{flex: 1}} initialRoute={initialRoute} />
     );
   }
 });
