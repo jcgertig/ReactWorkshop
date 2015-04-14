@@ -20,6 +20,8 @@ gem "nested_form"
 # gem "omniauth-twitter"
 gem "rack-rewrite"
 gem "react-rails", github: "reactjs/react-rails", branch: "master"
+gem "vacuum"
+gem 'walmart_open'
 
 # REQUIRED #
 gem "rails", "4.2.0"
